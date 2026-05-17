@@ -202,6 +202,14 @@ class EpubParser {
     content = content.replace(/<(p|div|h[1-6]|li|br|tr)[^>]*>/gi, "\n");
     content = content.replace(/<(blockquote|section|article)[^>]*>/gi, "\n\n");
     content = content.replace(/<[^>]+>/g, " ");
+    content = content.replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n));
+    content = content.replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCharCode(parseInt(h, 16)));
+    content = content.replace(/&(nbsp|lt|gt|amp|quot|apos|mdash|ndash|lsquo|rsquo|ldquo|rdquo|hellip|copy|reg|trade);/gi, (_, e) => ({
+      nbsp: " ", lt: "<", gt: ">", amp: "&", quot: '"', apos: "'",
+      mdash: "\u2014", ndash: "\u2013", lsquo: "\u2018", rsquo: "\u2019",
+      ldquo: "\u201C", rdquo: "\u201D", hellip: "\u2026", copy: "\u00A9",
+      reg: "\u00AE", trade: "\u2122",
+    })[e.toLowerCase()] || "");
 
     return content
       .replace(/[ \t]+/g, " ")

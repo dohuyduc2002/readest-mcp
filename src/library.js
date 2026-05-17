@@ -61,19 +61,12 @@ class ReadestLibrary {
 
   async listBooks() {
     const index = (await this._readJson(this.libraryIndexPath)) || [];
-    const books = [];
-    for (const book of index) {
-      const config = await this.getBookConfig(book.hash);
-      books.push({
-        id: book.hash,
-        title: book.title || book.metadata?.title || "Unknown Title",
-        author: book.author || book.metadata?.author || "Unknown Author",
-        progress: config?.progress || book.progress || [0, 0],
-        format: book.format,
-        bookmarks: config?.booknotes || [],
-      });
-    }
-    return books;
+    return index.map((book) => ({
+      id: book.hash,
+      title: book.title || book.metadata?.title || "Unknown Title",
+      author: book.author || book.metadata?.author || "Unknown Author",
+      format: book.format,
+    }));
   }
 
   async getBookConfig(hash) {

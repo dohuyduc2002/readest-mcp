@@ -14,7 +14,7 @@ function registerTools(server, library) {
   server.addTool({
     name: "list_books",
     description:
-      "List all books in the Readest library with titles, authors, progress, and bookmarks.",
+      "List all books in the Readest library (id, title, author, format). Use get_book_details for full metadata and bookmarks.",
     parameters: z.object({}),
     annotations: {
       readOnlyHint: true,
