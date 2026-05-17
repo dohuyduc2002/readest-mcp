@@ -49,7 +49,7 @@ class ReadestLibrary {
     const safe = this._assertWithinDataDir(filePath);
     if (!existsSync(safe)) return null;
     const content = await fs.readFile(safe, "utf8");
-    return JSON.parse(content);
+    return content ? JSON.parse(content) : null;
   }
 
   async _writeJson(filePath, data) {
