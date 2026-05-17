@@ -63,10 +63,10 @@ describe("ReadestLibrary", () => {
       assert.equal(books[0].author, "Test Author");
     });
 
-    it("includes bookmarks from config", async () => {
+    it("returns only summary fields without bookmarks", async () => {
       const books = await lib.listBooks();
-      assert.equal(books[0].bookmarks.length, 1);
-      assert.equal(books[0].bookmarks[0].id, "note-001");
+      assert.equal(books[0].format, "epub");
+      assert.equal(books[0].bookmarks, undefined);
     });
   });
 
