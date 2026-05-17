@@ -1,7 +1,7 @@
 "use strict";
 
 const AdmZip = require("adm-zip");
-const path = require("path");
+const path = require("path").posix; // fix on window force to possix
 const { XMLParser } = require("fast-xml-parser");
 
 class EpubParser {
