@@ -1,0 +1,9 @@
+[
+  {
+    "hash": "abc123def456",
+    "title": "Test Book",
+    "author": "Test Author",
+    "format": "epub",
+    "progress": [10, 100]
+  }
+]
