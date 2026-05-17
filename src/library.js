@@ -140,7 +140,7 @@ class ReadestLibrary {
     if (!bookmark) throw new Error(`Bookmark not found: ${bookmarkId}`);
 
     if (updates.note !== undefined) bookmark.note = String(updates.note);
-    if (updates.color !== undefined) bookmark.color = String(updates.color);
+    if (updates.color !== undefined) bookmark.color = updates.color === null ? null : String(updates.color);
     bookmark.updatedAt = Date.now();
 
     await this._writeJson(configPath, config);
