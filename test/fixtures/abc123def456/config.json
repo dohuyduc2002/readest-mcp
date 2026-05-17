@@ -1,0 +1,12 @@
+{
+  "progress": [10, 100],
+  "booknotes": [
+    {
+      "id": "note-001",
+      "note": "Important passage",
+      "color": "yellow",
+      "cfi": "/6/4[chap01]!/4/2/1:0",
+      "updatedAt": 1700000000000
+    }
+  ]
+}

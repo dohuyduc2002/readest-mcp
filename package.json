@@ -1,0 +1,40 @@
+{
+  "name": "readest-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for the Readest e-book library",
+  "main": "src/server.js",
+  "bin": {
+    "readest-mcp": "src/server.js"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test 'test/**/*.test.js'",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "build": "npm run lint && npm test"
+  },
+  "keywords": [
+    "mcp",
+    "readest",
+    "epub",
+    "ebook"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "adm-zip": "0.5.17",
+    "fast-xml-parser": "5.8.0",
+    "fastmcp": "4.0.1",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "eslint": "9.27.0"
+  }
+}
